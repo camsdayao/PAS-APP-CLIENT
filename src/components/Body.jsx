@@ -4,6 +4,7 @@ import Content from "../components/Content";
 const Body = () => {
   return (
     <div className="h-full grid grid-cols-3">
+        
       <div className=" mt-24">
         <Side/>
       </div> 

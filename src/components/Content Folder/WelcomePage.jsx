@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import Welcome from "../Content Folder/content-assets/welcome.png";
 
 const WelcomePage = () => {
   return (
-    <div className='bg-orang-400'>
+    <div className="h-full w-full flex items-center">
+        <img src={Welcome} className="mx-auto"></img>
+      </div>
+  );
+};
 
-    </div>
-  )
-}
-
-export default WelcomePage
+export default WelcomePage;

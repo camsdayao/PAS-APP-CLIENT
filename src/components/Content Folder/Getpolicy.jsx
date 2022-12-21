@@ -1,17 +1,33 @@
 import React from "react";
+import { useState } from "react";
 import { AiOutlineDollarCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { openAccountCreatedModal } from "../../features/modalSlice";
 
-
-
 const Getpolicy = () => {
   const dispatch = useDispatch();
+
+  const [effectDate, setEffectDate] = useState("");
+  const [polFname, setPolFname] = useState("");
+  const [polLname, setPolLname] = useState("");
+  const [birthDate, setBirthDate] = useState("");
+  const [address, setAddress] = useState("");
+  const [licenseNum, setLicenseNum] = useState("");
+  const [licenseDate, setLicenseDate] = useState("");
+  const [make, setMake] = useState("");
+  const [model, setModel] = useState("");
+  const [color, setColor] = useState("");
+  const [fuelType, setFuelType] = useState("");
+  const [carType, setCarType] = useState("");
+  const [year, setYear] = useState("");
+  const [price, setPrice] = useState();
+
   const handleClick = (e) => {
-    dispatch(openAccountCreatedModal());
-    console.log(handleClick)
+    //dispatch(openAccountCreatedModal());
+    //console.log(handleClick);
+    console.log();
+    console.log(typeof price);
   };
-  
 
   return (
     <div className="text-center">
@@ -19,6 +35,8 @@ const Getpolicy = () => {
       <input
         type="date"
         className="rounded ring-2 ring-black ring-inset w-28 p-1  md:ml-12 text-sm md:w-48 md:text-base"
+        value={effectDate}
+        onChange={(e) => setEffectDate(e.target.value)}
       />
 
       <div className="">
@@ -30,17 +48,23 @@ const Getpolicy = () => {
             placeholder="FIRSTNAME"
             id="floating_outlined"
             className="text-center rounded-lg mt-2 h-8 mx-2 text-xs md:text-base"
+            value={polFname}
+            onChange={(e) => setPolFname(e.target.value)}
           />
           <input
             type="text"
             placeholder="LASTNAME"
             className="text-center rounded-lg mt-2 h-8 mx-2 text-xs md:text-base"
+            value={polLname}
+            onChange={(e) => setPolLname(e.target.value)}
           />
           <div className="flex flex-col col-span-2 items-center md:col-span-1">
             <label className="mt-2 text-sm">Birthdate:</label>
             <input
               type="date"
               className="rounded ring-2 ring-black ring-inset p-1 md: text-sm md:w-3/4 md:text-base md:align-end"
+              value={birthDate}
+              onChange={(e) => setBirthDate(e.target.value)}
             />
           </div>
         </div>
@@ -49,18 +73,24 @@ const Getpolicy = () => {
           type="text"
           placeholder="ADDRESS"
           className="md:flex text-center rounded-lg mt-2 w-full h-8 text-xs md:text-base"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
         />
         <div className="grid grid-cols-3 items-end">
           <input
             type="text"
             placeholder="LICENSE NUMBER"
             className="md:flex text-center rounded-lg mt-2 h-8 text-xs col-span-2 align-end md:text-base mx-4"
+            value={licenseNum}
+            onChange={(e) => setLicenseNum(e.target.value)}
           />
           <div className="w-full">
             <h1 className="mt-2 text-sm">Issued date:</h1>
             <input
               type="date"
               className="rounded ring-2 ring-black ring-inset w-full p-1  text-sm md:text-base md:w-3/4"
+              value={licenseDate}
+              onChange={(e) => setLicenseDate(e.target.value)}
             />
           </div>
         </div>
@@ -72,16 +102,22 @@ const Getpolicy = () => {
             type="text"
             placeholder="MAKE"
             className="md:flex text-center rounded-lg h-8 w-3/4 mx-auto"
+            value={make}
+            onChange={(e) => setMake(e.target.value)}
           />
           <input
             type="text"
             placeholder="MODEL"
             className="md:flex text-center rounded-lg h-8 w-3/4 mx-auto"
+            value={model}
+            onChange={(e) => setModel(e.target.value)}
           />
           <input
             type="text"
             placeholder="COLOR"
             className="md:flex text-center rounded-lg h-8 w-3/4 mx-auto"
+            value={color}
+            onChange={(e) => setColor(e.target.value)}
           />
         </div>
 
@@ -96,9 +132,10 @@ const Getpolicy = () => {
                   <input
                     id="list-radio-license"
                     type="radio"
-                    value=""
+                    value="Gasoline"
                     name="list-radio"
                     className="w-3 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 md:w-4"
+                    onChange={(e) => setFuelType(e.target.value)}
                   />
                   <label
                     id="list-radio-license"
@@ -113,9 +150,10 @@ const Getpolicy = () => {
                   <input
                     id="list-radio-license"
                     type="radio"
-                    value=""
+                    value="Diesel"
                     name="list-radio"
                     className="w-3 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 md:w-4"
+                    onChange={(e) => setFuelType(e.target.value)}
                   />
                   <label
                     id="list-radio-license"
@@ -130,9 +168,10 @@ const Getpolicy = () => {
                   <input
                     id="list-radio-millitary"
                     type="radio"
-                    value=""
+                    value="Electric"
                     name="list-radio"
                     className="w-3 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 md:w-4"
+                    onChange={(e) => setFuelType(e.target.value)}
                   />
                   <label
                     id="list-radio-millitary"
@@ -149,10 +188,12 @@ const Getpolicy = () => {
               Car Type:
             </h1>
             <div className="inline-block relative w-full text-xs md:text-base">
-              <select className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                <option>Choose Car type</option>
-                <option>2-Door(Sedan)</option>
-                <option>4-Door(Sportscar)</option>
+              <select
+                className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                onChange={(e) => setCarType(e.target.value)}
+              >
+                <option>4-Door(Sedan)</option>
+                <option>2-Door(Sportscar)</option>
                 <option>SUV</option>
                 <option>Trucks</option>
               </select>
@@ -173,7 +214,12 @@ const Getpolicy = () => {
             <h1 className="text-gray-900 dark:text-white w-2/3 text-sm md:text-base">
               Month & Year
             </h1>
-            <input type="month" className="w-3/4 items" />
+            <input
+              type="month"
+              className="w-3/4 items"
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+            />
           </div>
           <div className="">
             <h1 className="text-gray-900 dark:text-white w-2/3 text-sm md:text-base">
@@ -196,6 +242,8 @@ const Getpolicy = () => {
                 id="input-group-1"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Amount"
+                value={price}
+                onChange={(e) => setPrice(parseInt(e.target.value))}
               />
             </div>
           </div>

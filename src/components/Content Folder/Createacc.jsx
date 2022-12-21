@@ -20,18 +20,18 @@ export default function BasicTextFields() {
     if (fname && lname && address) {
       const Customer = { fname, lname, address };
       console.log(Customer);
-      // axios
-      //   .post("http://localhost:8080/api/addcustomer", {
-      //     fname: fname,
-      //     lname: lname,
-      //     address: address,
-      //   })
-      //   .then(function (response) {
-      //     console.log(response);
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error);
-      //   });
+      axios
+        .post("http://localhost:8080/api/addcustomer", {
+          fname: fname,
+          lname: lname,
+          address: address,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       dispatch(openAccountCreatedModal());
     }
   };
@@ -115,4 +115,4 @@ export default function BasicTextFields() {
       </button>
     </div>
   );
-}
+};

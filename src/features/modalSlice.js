@@ -16,6 +16,6 @@ const modalSlice = createSlice({
     },
   },
 });
-export const { openAccountCreatedModal, closeAccountCreatedModal } =
+export const { openAccountCreatedModal, closeAccountCreatedModal } = 
   modalSlice.actions;
 export default modalSlice.reducer;
